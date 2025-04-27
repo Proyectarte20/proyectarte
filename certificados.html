@@ -46,16 +46,17 @@
       const errorMsg = document.getElementById("errorMsg");
       errorMsg.textContent = "";
 
+      // Definimos los enlaces de las carpetas de los usuarios
       const links = {
         "1098802250": "https://drive.google.com/drive/folders/1Tx46LplN5lEhHuSk-l-r28BLnOdFxmTa",
         "63560066": "https://drive.google.com/drive/folders/1JtyZX3a0esW0q3HGLJRhc2jHV7Go3sYk",
-        "1005104928": "https://drive.google.com/drive/folders/1h_7xAKu4ttTXCzUdiYbxxA5MJVY6lVFl"
+        "1005104928": "https://drive.google.com/drive/folders/1h_7xAKu4ttTXCzUdiYbxxA5MJVY6lVFl",
         "1018429604": "https://drive.google.com/drive/folders/15ZbBezESM8SwwE97ZdpS4GsKPIIr3WpO?usp=sharing"
         // Agrega más documentos y enlaces aquí
       };
 
       if (links[docNumber]) {
-        window.open(links[docNumber], '_blank');
+        window.open(links[docNumber], '_blank'); // Abre el enlace en una nueva pestaña
       } else {
         errorMsg.textContent = "No se encontró una carpeta para este número de documento.";
       }

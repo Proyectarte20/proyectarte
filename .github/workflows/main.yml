@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Consulta de Certificados</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+      background-color: #f9f9f9;
+    }
+    input {
+      padding: 10px;
+      font-size: 16px;
+      width: 250px;
+      margin-bottom: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+    .error {
+      color: red;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Consulta tu Certificado</h2>
+  <p>Ingresa tu número de documento:</p>
+  <input type="text" id="docNumber" placeholder="Ej: 12345678" />
+  <br />
+  <button onclick="goToCertificate()">Consultar</button>
+  <div class="error" id="errorMsg"></div>
+
+  <script>
+    function goToCertificate() {
+      const docNumber = document.getElementById("docNumber").value.trim();
+      const errorMsg = document.getElementById("errorMsg");
+      errorMsg.textContent = "";
+
+      const links = {
+        "1098802250": "https://drive.google.com/drive/folders/1Tx46LplN5lEhHuSk-l-r28BLnOdFxmTa",
+        "63560066": "https://drive.google.com/drive/folders/1JtyZX3a0esW0q3HGLJRhc2jHV7Go3sYk",
+        "1005104928": "https://drive.google.com/drive/folders/1h_7xAKu4ttTXCzUdiYbxxA5MJVY6lVFl"
+        // Agrega más documentos y enlaces aquí
+      };
+
+      if (links[docNumber]) {
+        window.open(links[docNumber], '_blank');
+      } else {
+        errorMsg.textContent = "No se encontró una carpeta para este número de documento.";
+      }
+    }
+  </script>
+</body>
+</html>
